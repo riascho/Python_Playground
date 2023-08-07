@@ -24,20 +24,6 @@ To-Do's:
 # birthday calculator omitting the year
 # simple timezone conversion Sri Lanka
 
-71 days, 23:56:07.156000 is a string representation of the timedelta object.
-
-To get the days only, just get the, well, .days:
-
->>> from datetime import datetime
->>> 
->>> recordDate = datetime(year=2010, month=10, day=10)
->>> now = datetime.now()
->>> age = now - recordDate
->>> age  # age is the timedelta object
-datetime.timedelta(2033, 61630, 853029)
->>> "%d days" % age.days
-'2033 days'
-
 '''
 lanka_time = today + timedelta(hours=3.5)
 print(f"Time Now in Sri Lanka: {lanka_time.hour}:{lanka_time.minute}")
