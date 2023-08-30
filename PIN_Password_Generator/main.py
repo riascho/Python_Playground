@@ -1,32 +1,19 @@
-import random, string
+import random, string, secrets
 
-def pin_generator(length):
+def pin_generator(length=4):
   pin=""
   for i in range (length):
-    pin += str(random.randint(0,9))
+    pin += str(secrets.choice(range(10)))
   return pin 
 
-def password_generator(length): 
-  password=[]
-  if length >= 4:
-    password.append(string.ascii_uppercase[random.randrange(26)])
-    password.append(string.digits[random.randrange(9)])
-    for i in range(length-2):
-      password.append(random.choice(list))
-  else:
-    return "Password needs to be at least 4 characters long!"  
-  random.shuffle(password)
-  password = "".join(password)
+def password_generator(length=8): 
+  characters = string.ascii_letters + string.digits + string.punctuation
+  while True: 
+    password = "".join(secrets.choice(characters) for i in range(length))
+    if any(c.isupper() for c in password) and any(c.isdigit() for c in password) and any(c in string.punctuation for c in password):
+      break
   return password
 
-list = []
-for letter in string.ascii_letters:
-  list.append(letter)
-for number in string.digits:
-  list.append(number)
-for symbol in string.punctuation:
-  list.append(symbol)
 
-length = 8
 with open("password.txt", "w") as file:
-  file.write(password_generator(length))
+  file.write(password_generator())
