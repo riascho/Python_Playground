@@ -1,4 +1,4 @@
-import re
+import re, string
 
 songtext = """Thank you
 
@@ -83,29 +83,15 @@ Bye-bye, we love ya!
 (Just a little bit)
 (Just a little bit)"""
 
-text_alphnum = re.sub(r'\W+', '', songtext)
-#text_alphnum = re.sub(r'\^a-zA-Z0-9', '', songtext)
+def count_word(word,text):
+  cleaned_up = "".join([char for char in text if char not in string.punctuation])
+  list = cleaned_up.lower().split()
+  count = list.count(word.lower())
+  return f"'{word}' counted {count}x"
 
-words=text_alphnum.lower().split() # split uses space as separator by default
+def count_phrase(phrase,text):
+  cleaned_up = "".join([char for char in text if char not in string.punctuation])
+  count = cleaned_up.count(phrase.lower())
+  return f"'{phrase}' counted {count}x"
 
-print(len(words)) # length of lists (which are words now)
-print(words)
-
-word_count = {}  #empty dictionary
-
-for i in words:
-  if i in word_count:  # if word is already in dictionary, counts up
-    word_count[i] += 1
-  else: 
-    word_count[i] = 1 # if not, will get added
-
-search=str(input("Which word would you like to look up?\n"))
-
-try:                            # how to deal with result = None
-  result=word_count[search]
-except KeyError:
-    result = 0                  # convert it into "0"
-
-print(f"The word '{search}' is used {result} times")
-
-#problem to solve = how to count words the same even if there is a symbol with it (e.g. "!")
+print(count_phrase("just a little bit",songtext))

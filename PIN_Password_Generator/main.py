@@ -16,4 +16,4 @@ def password_generator(length=8):
 
 
 with open("password.txt", "w") as file:
-  file.write(password_generator())
+  file.write(password_generator(12))
