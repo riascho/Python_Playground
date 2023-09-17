@@ -1,0 +1,10 @@
+1		Matsyendrasana
+2		Boat
+3		Warrior 3
+4		Wheel
+5		King Pigeon
+6		Konasana
+7		Plough
+8		Crow
+9		Lying Down Spinal Twist
+10		Uttanasana
