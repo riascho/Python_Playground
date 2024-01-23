@@ -1,6 +1,7 @@
-# 100_days_of_code
+# Python Playground
 
-~ My personal Python playground ~
+Collection of Python Scripts and projects
+
 
 
 
